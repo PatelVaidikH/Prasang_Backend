@@ -13,7 +13,7 @@ class Cart extends Model
 
     protected $primaryKey = 'cart_id';
 
-    public $timestamps = false; 
+    public $timestamps = false;
 
     protected $fillable = [
         'vendor_service_id',
@@ -26,8 +26,4 @@ class Cart extends Model
         'event_code',
     ];
 
-    protected $casts = [
-        'event_date' => 'date',
-        'created_on' => 'datetime',
-    ];
 }

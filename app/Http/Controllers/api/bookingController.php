@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\VendorServiceAvailability;
+use App\Models\Cart;
 
 
 class bookingController extends Controller
@@ -43,8 +44,31 @@ class bookingController extends Controller
         return response()->json(['message' => 'Date stored successfully'], 201);
 
     }
+    public function addToCart(Request $request)
+    {
+        // return response()->json($request->all());
+        // Validate incoming request data
+        // $request->validate([
+        //     'event_date' => 'required|date',
+        //     'event_time' => 'required|string|max:45',
+        //     'event_code' => 'required|string|max:8',
+        //     'no_of_guests' => 'required|integer|min:1',
+        //     'additional_info' => 'nullable|string',
+        // ]);
 
-    public function addtoCart(Request $request){
-        
+        // Create a new cart entry
+        Cart::create([
+            'vendor_service_id' => $request->vendor_service_id,
+            'event_date' => $request->event_date,
+            'event_time' => $request->event_time,
+            'event_code' => $request->event_code,
+            'no_of_guests' => $request->no_of_guests,
+            'additional_info' => $request->additional_info,
+        ]);
+
+        return response()->json([
+            'message' => 'Event added to cart successfully',
+            
+        ], 201);
     }
 }
