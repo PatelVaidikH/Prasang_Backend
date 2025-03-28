@@ -13,3 +13,4 @@ Route::post('/eventservicelist',[allEventServiceController::class, 'eventService
 Route::post('/vendorlist',[VendorController::class, 'getVendorByServiceCode']);
 Route::post('/vendordetail',[VendorController::class, 'vendorDetails']);
 Route::post('/vendorserviceavailability',[bookingController::class, 'checkAvailability']);
+Route::post('/storedate',[bookingController::class, 'storeDate']);

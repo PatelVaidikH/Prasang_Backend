@@ -26,7 +26,25 @@ class bookingController extends Controller
         }
 
         return response()->json(['available' => true], 200);
+    }
 
+    public function storeDate(Request $request){
+        $existingAvailability = VendorServiceAvailability::where('vendor_service_id', $request->vendor_service_id)
+            ->where('event_date', $request->event_date)
+            ->first();
+        if ($existingAvailability) {
+            return response()->json(['message' => 'Date is already booked'], 409);
+        }
+        $availability = new VendorServiceAvailability();
+        $availability->vendor_service_id = $request->vendor_service_id;
+        $availability->event_date = $request->event_date;
+        $availability->save();
 
+        return response()->json(['message' => 'Date stored successfully'], 201);
+
+    }
+
+    public function addtoCart(Request $request){
+        
     }
 }
