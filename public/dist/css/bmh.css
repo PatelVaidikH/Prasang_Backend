@@ -1,0 +1,21 @@
+.sidebar {
+    color: #e1c510; /* Light orange color */
+  }
+  table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 15px; /* Adjust spacing between cells */
+text-align: left;
+}
+
+th, td {
+padding: 10px; /* Adjust padding inside cells */
+border-radius: 10px; /* Rounded corners */
+background-color: #f0f0f0; /* Background color for cells */
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add some shadow for better look */
+}
+
+th {
+background-color: #d0d0d0; /* Different background color for headers */
+font-weight: bold;
+}
