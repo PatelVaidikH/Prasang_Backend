@@ -102,12 +102,106 @@
       <div class="container-fluid">
         <div class="row mb-1">
 
-          <!-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
+          <div class="col-sm-6">
+            <!-- <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">General Form</li>
-            </ol>
-          </div> -->
+            </ol> -->
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>16</h3>
+
+                <p>Total Listed Events</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>28</h3>
+
+                <p>Total Listed Services</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>Total Registered Vendors</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Unique Visitors</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 450px;">
+                <table class="table table-head-fixed text-nowrap table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width: 30px">#</th>
+                      <th>Services</th>
+                      <th >Count</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($serviceCounts as $service)
+                      <tr>
+                          <td>{{ $service->service_code }}</td>
+                          <td>{{ $service->service_master_name }}</td>
+                          <td>{{ $service->service_count }}</td>
+                      </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>

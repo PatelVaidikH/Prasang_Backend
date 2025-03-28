@@ -134,11 +134,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($vendors as $vendor)
+                    @foreach($vendorServiceCounts as $vendor)
                       <tr>
                           <td>{{ $vendor->vendor_name }}</td>
                           <td>{{ $vendor->vendor_city }}</td>
-                          <td></td>
+                          <td>{{ $vendor->service_count }}</td>
                           <td style="text-align: center;">
                               <i class="fa fa-eye"></i>
                             </td>

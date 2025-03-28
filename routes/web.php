@@ -14,9 +14,7 @@ Route::get('/loginGet', function () {
 })->name('loginGet');
 Route::post('/login', [loginController::class, 'login']);
 
-Route::get('/admin', function () {
-    return view('admin.adminDashboard');
-})->name('adminDashboard');
+Route::get('/admin', [superAdminController::class, 'adminDashboard'])->name('adminDashboard');
 
 Route::get('/addVendor', function () {
     return view('admin.addVendor');

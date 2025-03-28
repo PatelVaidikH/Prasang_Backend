@@ -13,9 +13,9 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
-    <div class="card" style="border-radius: 25px; box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);">
+    <div class="card" style="border-radius: 25px; box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2); width: 450px; margin: auto; padding: 20px;">
               <div class="card-header">
-                <img src="../../dist/img/logo.png" alt="Prasang Logo" class="brand" style="opacity: .8">
+                <img src="../../dist/img/logo.png" alt="Prasang Logo" class="brand" style="display: block; margin: auto; width: 150px;">
               </div>
               <!-- /.card-header -->
               <!-- form start -->
