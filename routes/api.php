@@ -16,3 +16,4 @@ Route::post('/vendorserviceavailability',[bookingController::class, 'checkAvaila
 Route::post('/storedate',[bookingController::class, 'storeDate']);
 Route::post('/cart',[bookingController::class, 'addToCart']);
 Route::get('/viewCart',[bookingController::class, 'viewCart']);
+Route::delete('/cart/{cart_id}', [bookingController::class, 'removeFromCart']);

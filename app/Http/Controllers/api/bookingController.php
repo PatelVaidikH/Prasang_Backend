@@ -69,9 +69,22 @@ class bookingController extends Controller
         ->join('vendor_service_table as vs', 'c.vendor_service_id', '=', 'vs.vendor_service_id')
         ->join('vendor_service_category_table as vsc', 'vs.category_id', '=', 'vsc.category_id')
         ->join('vendor_master_table as vm', 'vsc.vendor_id', '=', 'vm.vendor_id')
-        ->select('c.event_date', 'vs.service_name', 'vm.vendor_name','vs.starting_price','vs.cover_photo')
+        ->select('c.cart_id','c.event_date', 'vs.service_name', 'vm.vendor_name','vs.starting_price','vs.cover_photo')
         ->get();
 
         return response()->json($cartItems);
+    }
+
+    public function removeFromCart($cart_id)
+    {
+        $cartItem = Cart::find($cart_id);
+
+        if (!$cartItem) {
+            return response()->json(['message' => 'Item not found in cart'], 404);
+        }
+
+        $cartItem->delete();
+        
+        return response()->json(['message' => 'Item removed from cart successfully'], 200);
     }
 }
