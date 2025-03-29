@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\VendorServiceAvailability;
 use App\Models\Cart;
+use Illuminate\Support\Facades\DB;
 
 
 class bookingController extends Controller
@@ -44,18 +45,9 @@ class bookingController extends Controller
         return response()->json(['message' => 'Date stored successfully'], 201);
 
     }
+
     public function addToCart(Request $request)
     {
-        // return response()->json($request->all());
-        // Validate incoming request data
-        // $request->validate([
-        //     'event_date' => 'required|date',
-        //     'event_time' => 'required|string|max:45',
-        //     'event_code' => 'required|string|max:8',
-        //     'no_of_guests' => 'required|integer|min:1',
-        //     'additional_info' => 'nullable|string',
-        // ]);
-
         // Create a new cart entry
         Cart::create([
             'vendor_service_id' => $request->vendor_service_id,
@@ -70,5 +62,16 @@ class bookingController extends Controller
             'message' => 'Event added to cart successfully',
             
         ], 201);
+    }
+
+    public function viewCart(){
+        $cartItems = DB::table('cart_table as c')
+        ->join('vendor_service_table as vs', 'c.vendor_service_id', '=', 'vs.vendor_service_id')
+        ->join('vendor_service_category_table as vsc', 'vs.category_id', '=', 'vsc.category_id')
+        ->join('vendor_master_table as vm', 'vsc.vendor_id', '=', 'vm.vendor_id')
+        ->select('c.event_date', 'vs.service_name', 'vm.vendor_name','vs.starting_price','vs.cover_photo')
+        ->get();
+
+        return response()->json($cartItems);
     }
 }

@@ -15,3 +15,4 @@ Route::post('/vendordetail',[VendorController::class, 'vendorDetails']);
 Route::post('/vendorserviceavailability',[bookingController::class, 'checkAvailability']);
 Route::post('/storedate',[bookingController::class, 'storeDate']);
 Route::post('/cart',[bookingController::class, 'addToCart']);
+Route::get('/viewCart',[bookingController::class, 'viewCart']);
